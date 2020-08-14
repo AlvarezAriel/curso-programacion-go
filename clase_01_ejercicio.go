@@ -1,7 +1,6 @@
 package main
 
 import "fmt"
-import "nombres"
 
 func main() {
 	cuantasLetrasTiene("Gisele")
@@ -14,12 +13,17 @@ func main() {
 func cuantasLetrasTiene(nombre string) {
 	var saludo string = "Hola " + nombre
 
-	var largoDelNombre int = len(nombre)
-	var esPar bool = 0 == largoDelNombre % 2
-	
-	if esPar {
+	if esStringPar(nombre) {
 		saludo = saludo + "!"
 	}
 
 	fmt.Println(saludo)
+}
+
+func esStringPar(texto string) bool {
+	return esNumeroPar(len(texto))
+}
+
+func esNumeroPar(unNumero int) bool {
+	return 0 == unNumero % 2
 }
