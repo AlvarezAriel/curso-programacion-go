@@ -3,22 +3,30 @@ package main
 import "fmt"
 
 func main() {
-	cuantasLetrasTiene("Gisele")
-	cuantasLetrasTiene("Ema")
-	cuantasLetrasTiene("Tsuki")
-	cuantasLetrasTiene("Gianni")
-	cuantasLetrasTiene("Eric")
+	arr := [8]float64{1, 2, 3, 4, 5, 6, 7, 8}
+
+	fmt.Println(reverse(arr[:]))
 }
 
-func cuantasLetrasTiene(nombre string) {
-	var saludo string = "Hola " + nombre
+func reverse(numeros []float64) []float64 {
+	largo := len(numeros)
+	resultado := make([]float64, largo)
 
-	var largoDelNombre int = len(nombre)
-	var esPar bool = 0 == largoDelNombre%2
-
-	if esPar {
-		saludo = saludo + "!"
+	for i := 0; i < largo; i++ {
+		resultado[largo-i-1] = numeros[i]
 	}
 
-	fmt.Println(saludo)
+	return resultado
+}
+
+func sum(numeros []float64) float64 {
+	acumulador := 0.0
+	for i := 0; i < len(numeros); i++ {
+		acumulador = acumulador + numeros[i]
+	}
+	return acumulador
+}
+
+func avg(numeros []float64) float64 {
+	return sum(numeros) / float64(len(numeros))
 }

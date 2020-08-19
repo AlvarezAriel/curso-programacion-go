@@ -22,17 +22,24 @@ func palabraEstaEnPosicion(palabra string, frase string, offset int) bool {
 	largoPalabra := len(palabra)
 	largoFrase := len(frase) - offset
 
-	if largoPalabra > largoFrase  {
+	if largoPalabra > largoFrase {
 		return false
 	}
 
-	var index int = 0
+	/*
+		var index int = 0
+		for index < largoPalabra {
+			if palabra[index] != frase[index+offset] {
+				return false
+			}
+			index = index + 1
+		}
+	*/
 
-	for index < largoPalabra {
-		if palabra[index] != frase[index + offset] {
+	for i := 0; i < largoPalabra; i++ {
+		if palabra[i] != frase[i+offset] {
 			return false
 		}
-		index = index + 1
 	}
 
 	return true
@@ -41,9 +48,7 @@ func palabraEstaEnPosicion(palabra string, frase string, offset int) bool {
 func main() {
 
 	palabraQueBusco := "yo no los conozco"
-	frase :=           "son los orozco, yo los conozco, son ocho los monos"
+	frase := "son los orozco, yo los conozco, son ocho los monos"
 
 	fmt.Println(estaLaPalabraEnLaFrase(palabraQueBusco, frase))
 }
-
-
