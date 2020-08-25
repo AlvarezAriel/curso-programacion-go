@@ -1,0 +1,5 @@
+package saigo
+
+func main() {
+
+}
